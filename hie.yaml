@@ -1,0 +1,8 @@
+cradle:
+    cabal:
+        - path: "./app"
+          component: "exe:free-monads-examples"
+        - path: "./src"
+          component: "lib:free-monads-examples"
+        - path: "./test"
+          component: "test:free-monads-examples-tests"
