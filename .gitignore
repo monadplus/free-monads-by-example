@@ -1,6 +1,14 @@
+*~
+tags
+.direnv
+
+# nix
+result
+
+# cabal
 dist/
 dist-newstyle/
 cabal.project.local
+
+# stack
 .stack-work/
-result
-*~

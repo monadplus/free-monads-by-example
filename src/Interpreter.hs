@@ -13,12 +13,12 @@ module Interpreter
 where
 
 import ByteCode
-import Control.Applicative (liftA2)
 import Control.Concurrent.Async
 import Control.Exception
 import Control.Monad.Except
 import Control.Monad.Free
 import Control.Monad.State.Strict
+import Data.Function (fix)
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as M
 import Data.Text (Text)

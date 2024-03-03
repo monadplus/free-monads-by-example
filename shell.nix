@@ -6,7 +6,11 @@ let
   };
   inherit (nixpkgs) pkgs;
   env = (import ./default.nix { inherit sources nixpkgs; }).env;
-in env.overrideAttrs (oldAttrs: {
-  buildInputs = with pkgs.haskellPackages;
-    oldAttrs.buildInputs ++ [ cabal-install cabal2nix ghcid ];
+in
+env.overrideAttrs (oldAttrs: {
+  buildInputs = oldAttrs.buildInputs ++ [
+    pkgs.cabal-install
+    pkgs.stack
+    pkgs.ghcid
+  ];
 })

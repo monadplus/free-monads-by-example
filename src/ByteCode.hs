@@ -81,7 +81,7 @@ type Channel = Chan Value
 
 type Future :: Type -> Type
 data Future a where
-  Future :: Exception e => Async (Either e a) -> Future a
+  Future :: (Exception e) => Async (Either e a) -> Future a
 
 data OpCode
   = Add
@@ -119,17 +119,17 @@ fork     :: MonadFree ByteCodeF m => ByteCode () -> m (Async ())
 await    :: MonadFree ByteCodeF m => Async () -> m ()
 -}
 
-litI :: MonadFree ByteCodeF m => Integer -> m ()
+litI :: (MonadFree ByteCodeF m) => Integer -> m ()
 litI = lit . I
 
-litB :: MonadFree ByteCodeF m => Bool -> m ()
+litB :: (MonadFree ByteCodeF m) => Bool -> m ()
 litB = lit . B
 
-add :: MonadFree ByteCodeF m => m ()
+add :: (MonadFree ByteCodeF m) => m ()
 add = binaryOp Add
 
-multiply :: MonadFree ByteCodeF m => m ()
+multiply :: (MonadFree ByteCodeF m) => m ()
 multiply = binaryOp Multiply
 
-lessThan :: MonadFree ByteCodeF m => m ()
+lessThan :: (MonadFree ByteCodeF m) => m ()
 lessThan = binaryOp LessThan

@@ -1,58 +1,19 @@
-# Free Monads: examples
+# Free monads by example
 
-This repository holds the sources from the series of blog post about free monads:
-- [Free monads in the real world](https://monadplus.pro/haskell/2022/04/19/free-interpreter/)
-- ...
+Companion code for ["Free monads in the real world"](https://monadplus.pro/haskell/2022/04/19/free-interpreter/).
 
-## Building the project
+## Build the project
 
-Cabal v2: 
+```bash
+# Option 1
+$ nix-shell
+nix-shell> cabal build
 
-```sh
-cabal update && cabal build
-```
+# Option 2
+nix-build
 
-Stack:
-
-```sh
+# Option 3
 stack build
 ```
 
-Nix:
-
-```sh
-# Executable at ./result/bin/
-nix-build
-```
-
-Development environment:
-
-```sh
-nix-shell --pure
-```
-
-## Running the project
-
-Cabal v2:
-
-```sh
-cabal run
-```
-
-Stack:
-
-```sh
-stack run
-```
-
-Nix:
-
-```sh
-nix-build && ./result/bin/free-monads-examples
-```
-
-## CI
-
-Disabled for now.
-
-Nix+cachix is missing in this old template.
+The project also compiles with GHC `9.6.X` and cabal `3.X.X`, but prefer deterministic builds with nix.
